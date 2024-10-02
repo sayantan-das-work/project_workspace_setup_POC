@@ -22,6 +22,7 @@ def mvn_clean_install(dest_to_pom_folder: str):
 				errors.append(f"\t{error}\n")
 			errors.append(stage.stdout)
 			logUtils.log("ERROR", "Error occurred during maven build :: ", errors)
+			return stage.returncode
 	else:
 		logUtils.log("Error", "pom.xml Not Found at path %s", path_to_pom)
 
